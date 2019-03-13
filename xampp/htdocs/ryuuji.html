@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<title id="info">Plex</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="refresh" content="120">
+	<link rel="stylesheet" href="/web/main.41148bad7397de5c0c8c0808d352b6ce.css">
+	<link rel="stylesheet" href="/web/main.v3.283be5c01ff8c07b4804ab49d28656a0.css">
+	<link rel="shortcut icon" href="/web/favicon.ico">
+	<link rel="mask-icon" href="/web/favicon-mask.svg" color="#cc7b19">
+		<style type="text/css">
+		    background {color:back;}
+			h2 {color:white;}
+			p {
+				display: block;
+				
+				margin-right: 48em;
+			  }
+		</style>
+		
+	</head>
+<body>
+	<div id="content" class="scroll-container dark-scrollbar">
+	<article>
+	  <header>
+	    <h1 id="info2"></h1>
+		<img id="dumbthumb" src="/web/plex.gif" alt="Ooops...">
+		<h2 id="info3"></h2>
+		<h3 id="info4"></h3>
+	  </header>
+	  <p id="info5"></p>
+	</article>
+	</div> 
+<script>
+var succ = false;
+var xhttp = new XMLHttpRequest();
+xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        myFunction(this);
+
+    }
+};
+setInterval(function() {
+  xhttp.open("GET", "http://[IP_ADDRESS]:[PLEX_PORT]/status/sessions/?X-Plex-Token=[X_PLEX_TOKEN]", true);
+  xhttp.send();
+},5000);
+
+function myFunction(xml) {
+      var xmlDoc = xml.responseXML;
+      var x = xmlDoc.getElementsByTagName('Video');
+      for (i = 0; i < x.length ; i++){
+      var z = x[i].childNodes[8];
+      console.log(z);
+          var token = "/?X-Plex-Token=[X_PLEX_TOKEN]"
+		  var series = x[i].getAttributeNode("grandparentTitle");
+          var episode = x[i].getAttributeNode("index");
+          var name = x[i].getAttributeNode("title");
+		  var sum = x[i].getAttributeNode("summary");
+		  var thumbnail = x[i].getAttributeNode("thumb");
+		  var y = x[i].getElementsByTagName('Player');
+		  for (j = 0; j < y.length ; j++){
+		  var state = y[j].getAttributeNode("state");
+		  var playerIP = y[j].getAttributeNode("remotePublicAddress")}
+		  var player = "http://[IP_ADDRESS]:[PLEX_PORT]";
+		  var thumbloc = player + thumbnail.nodeValue + ".png"+ token;
+		  
+          document.getElementById("info").innerHTML = series.nodeValue + " - Episode " + episode.nodeValue + " - " + state.nodeValue + " - ";
+
+		  
+		  document.getElementById("dumbthumb").src = thumbloc;
+		  document.getElementById("info2").innerHTML = series.nodeValue;
+		  document.getElementById("info3").innerHTML = "Episode " + episode.nodeValue +": " + name.nodeValue;
+		  document.getElementById("info4").innerHTML = " - Currently " + state.nodeValue +" - ";
+		  document.getElementById("info5").innerHTML = sum.nodeValue;
+		  
+        
+     }
+}
+
+</script>
+</body>
+</html>
