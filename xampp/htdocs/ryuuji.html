@@ -1,37 +1,26 @@
 <!DOCTYPE html>
 <html>
 	<head>
-	<title id="info">Plex</title>
+	<title id="PlexSeriesInfo">Ryuuji</title>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="refresh" content="120">
-	<link rel="stylesheet" href="/web/main.41148bad7397de5c0c8c0808d352b6ce.css">
-	<link rel="stylesheet" href="/web/main.v3.283be5c01ff8c07b4804ab49d28656a0.css">
+	<link rel="stylesheet" href="/web/style.css">
 	<link rel="shortcut icon" href="/web/favicon.ico">
-	<link rel="mask-icon" href="/web/favicon-mask.svg" color="#cc7b19">
-		<style type="text/css">
-		    background {color:back;}
-			h2 {color:white;}
-			p {
-				display: block;
-				
-				margin-right: 48em;
-			  }
-		</style>
-		
+	<link rel="mask-icon" href="/web/favicon-mask.svg" color="#cc7b19">	
 	</head>
 <body>
-	<div id="content" class="scroll-container dark-scrollbar">
-	<article>
-	  <header>
-	    <h1 id="info2"></h1>
-		<img id="dumbthumb" src="/web/plex.gif" alt="Ooops...">
-		<h2 id="info3"></h2>
-		<h3 id="info4"></h3>
-	  </header>
-	  <p id="info5"></p>
-	</article>
-	</div> 
+
+<div class="PlexContainer">
+  <img id="PlexSeriesThumbnail" class="PlexThumb" src="/web/plex.gif" alt="Ooops...">
+  <div class="PlexContent">
+    <h2 id="PlexSeriesTitle" style="color:#e5a00d">Loading...</h2>
+	<h3 id="PlexSeriesStatus"></h3>
+    <p id="PlexSeriesEpisode"></p>
+    <p id="PlexSeriesSynopsis"></p> 
+  </div>
+</div>
+  
 <script>
 var succ = false;
 var xhttp = new XMLHttpRequest();
@@ -55,6 +44,7 @@ function myFunction(xml) {
           var token = "/?X-Plex-Token=[X_PLEX_TOKEN]"
 		  var series = x[i].getAttributeNode("grandparentTitle");
           var episode = x[i].getAttributeNode("index");
+		  var season = x[i].getAttributeNode("parentIndex");
           var name = x[i].getAttributeNode("title");
 		  var sum = x[i].getAttributeNode("summary");
 		  var thumbnail = x[i].getAttributeNode("thumb");
@@ -65,14 +55,14 @@ function myFunction(xml) {
 		  var player = "http://[IP_ADDRESS]:[PLEX_PORT]";
 		  var thumbloc = player + thumbnail.nodeValue + ".png"+ token;
 		  
-          document.getElementById("info").innerHTML = series.nodeValue + " - Episode " + episode.nodeValue + " - " + state.nodeValue + " - ";
+          document.getElementById("PlexSeriesInfo").innerHTML = series.nodeValue + " - Episode " + episode.nodeValue + " - " + state.nodeValue;
 
 		  
-		  document.getElementById("dumbthumb").src = thumbloc;
-		  document.getElementById("info2").innerHTML = series.nodeValue;
-		  document.getElementById("info3").innerHTML = "Episode " + episode.nodeValue +": " + name.nodeValue;
-		  document.getElementById("info4").innerHTML = " - Currently " + state.nodeValue +" - ";
-		  document.getElementById("info5").innerHTML = sum.nodeValue;
+		  document.getElementById("PlexSeriesThumbnail").src = thumbloc;
+		  document.getElementById("PlexSeriesTitle").innerHTML = series.nodeValue + "<span style=\"color:white;font-weight:300\">" + " Season " + season.nodeValue + "</span>";
+		  document.getElementById("PlexSeriesEpisode").innerHTML = "<span style=\"font-weight:bold\">" + "Episode " + episode.nodeValue + "</br>" + "</span>" + name.nodeValue;
+		  document.getElementById("PlexSeriesStatus").innerHTML = "Currently " + state.nodeValue;
+		  document.getElementById("PlexSeriesSynopsis").innerHTML = "<span style=\"font-weight:bold\">" + "Synopsis" + "</span>" + "</br>" + sum.nodeValue;
 		  
         
      }

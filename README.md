@@ -10,7 +10,7 @@ _____
 
 **Status:** Currently **NOT ACTUALLY WORKING** _(just shows Plex activity)_
 
-**Last Activity:** October 2018
+**Last Activity:** March 2019
 _____
 
 [Taiga](https://github.com/erengy/taiga) is the best Windows-based Anime-watching Tracking app that I am aware of, but sadly, it is also incompatible with the (arguably) best Media Center Server Platform for Anime (outside of the web interface, which is mostly there for server management).

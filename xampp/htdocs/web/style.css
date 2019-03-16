@@ -1,0 +1,55 @@
+body {
+    background: url(https://plex.xhenos.com/web/common/img/backgrounds/noise.8b05ce45d0df59343e206bc9ae78d85d.png);
+    background-image: url(https://plex.xhenos.com/web/common/img/backgrounds/noise.8b05ce45d0df59343e206bc9ae78d85d.png);
+    background-position-x: initial;
+    background-position-y: initial;
+    background-size: initial;
+    background-repeat-x: initial;
+    background-repeat-y: initial;
+    background-attachment: initial;
+    background-origin: initial;
+    background-clip: initial;
+    background-color: initial;
+	background-color: rgba(32, 32, 32);
+	z-index: 2;
+}
+
+.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6, p {
+    font-family: Open Sans Regular,Helvetica Neue,Helvetica,Arial,sans-serif;
+    font-weight: 400;
+    line-height: 1.5;
+}
+
+.PlexThumb {
+  height: 405px;
+  width: 720px;
+  overflow: hidden;
+}
+
+.PlexContainer {
+  position: relative; 
+  max-width: 720px; /* Maximum width */
+  margin: 0 auto; /* Center it */
+}
+
+.PlexContainer .PlexContent {
+  position: absolute; /* Position the background text */
+  background: rgb(0, 0, 0); /* Fallback color */
+  background: rgba(20, 20, 20, 0.5); /* Black background with 0.5 opacity */
+  color: #f1f1f1; /* Grey text */
+  width: 680px; /* Full width */
+  padding: 20px; /* Some padding */
+}
+
+#PlexSeriesTitle {
+	margin-bottom: 2px;
+}
+
+#PlexSeriesStatus {
+	margin-top: 2px;
+}
+
+.RyuujiLogo {
+	height: 32px;
+	width: 32px;
+}
