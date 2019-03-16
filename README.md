@@ -30,12 +30,12 @@ Following are some images to give you an idea of what to expect:
 
 **Ryuuji using ryuuji.html**
 
-![GIF of Ryuuji loading and showing status using ryuuji.html](https://i.imgur.com/8RwPXiR.gifv)
+[GIF of Ryuuji loading and showing status using ryuuji.html](https://i.imgur.com/8RwPXiR.gifv)
 
 
 **Ryuuji using plex.html**
 
-![GIF of Ryuuji loading and showing status using plex.html](https://i.imgur.com/lTeuFD9.gifv)
+[GIF of Ryuuji loading and showing status using plex.html](https://i.imgur.com/lTeuFD9.gifv)
 
 
 ### Note:
