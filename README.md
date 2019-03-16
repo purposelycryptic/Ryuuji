@@ -28,24 +28,14 @@ Once you are done, you should be good to go! Just direct your browser to your XA
 Following are some images to give you an idea of what to expect:
 
 
-**Plex Inactive - Using ryuuji.html**
+**Ryuuji using ryuuji.html**
 
-![Inactive - Taiga + Ryuuji Logo](https://i.imgur.com/22fLK9P.jpg)
-
-
-**Plex Inactive - Using plex.html**
-
-![Inactive - Plex Logo](https://i.imgur.com/hbO5kir.jpg)
+[GIF of Ryuuji loading and showing status using ryuuji.html](https://i.imgur.com/8RwPXiR.gifv)
 
 
-**Plex Active - Playing Video**
+**Ryuuji using plex.html**
 
-![Active - Playing Video](https://i.imgur.com/CQkT3Sv.jpg)
-
-
-**Plex Active - Paused**
-
-![Active - Paused](https://i.imgur.com/T4yWsly.jpg)
+[GIF of Ryuuji loading and showing status using plex.html](https://i.imgur.com/lTeuFD9.gifv)
 
 
 ### Note:
