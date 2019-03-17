@@ -1,55 +1,126 @@
-body {
-    background: url(https://plex.xhenos.com/web/common/img/backgrounds/noise.8b05ce45d0df59343e206bc9ae78d85d.png);
-    background-image: url(https://plex.xhenos.com/web/common/img/backgrounds/noise.8b05ce45d0df59343e206bc9ae78d85d.png);
-    background-position-x: initial;
-    background-position-y: initial;
-    background-size: initial;
-    background-repeat-x: initial;
-    background-repeat-y: initial;
-    background-attachment: initial;
-    background-origin: initial;
-    background-clip: initial;
-    background-color: initial;
-	background-color: rgba(32, 32, 32);
-	z-index: 2;
+html, body {
+	height: 100%;
 }
 
-.h1, .h2, .h3, .h4, .h5, .h6, h1, h2, h3, h4, h5, h6, p {
+body {
+    background: url(background.png) no-repeat center center fixed; 
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
     font-family: Open Sans Regular,Helvetica Neue,Helvetica,Arial,sans-serif;
     font-weight: 400;
     line-height: 1.5;
 }
 
-.PlexThumb {
-  height: 405px;
-  width: 720px;
+.container-fluid {
+    background: url(noise.png);
+    z-index: 2;
+	height: 100%
+}
+
+#plexSeries-title {
+	color: #ffffff;
+	font-size: 1.5rem;
+}
+
+#plexSeries-episode {
+	font-weight: bold;
+}
+
+#plexSeries-thumbnail {
+  width: 100%;
   overflow: hidden;
+  margin:0 auto;
+  
 }
 
-.PlexContainer {
-  position: relative; 
-  max-width: 720px; /* Maximum width */
-  margin: 0 auto; /* Center it */
+.plexTile-background {
+	background-color: rgba(0,0,0,.15);
+	box-shadow: 0 0 4px rgba(0,0,0,.35);
+	padding-right: 0!important;
+	padding-left: 0!important;
 }
 
-.PlexContainer .PlexContent {
-  position: absolute; /* Position the background text */
-  background: rgb(0, 0, 0); /* Fallback color */
-  background: rgba(20, 20, 20, 0.5); /* Black background with 0.5 opacity */
-  color: #f1f1f1; /* Grey text */
-  width: 680px; /* Full width */
-  padding: 20px; /* Some padding */
+.plexTile-content {
+	color: hsla(0,0%,100%,.45);
+	padding: 10px;
 }
 
-#PlexSeriesTitle {
-	margin-bottom: 2px;
+.plexTile-align {
+	margin-top: auto;
+	margin-bottom: auto;
 }
 
-#PlexSeriesStatus {
-	margin-top: 2px;
+.ryuujiLoading {
+	color: #e5a00d;
+	float: right;
+	position: relative;
+	left: -30%; /* or right 50% */
+	padding-bottom: 1.5rem;
 }
 
-.RyuujiLogo {
-	height: 32px;
-	width: 32px;
+@keyframes blink {
+    /**
+     * At the start of the animation the dot
+     * has an opacity of .2
+     */
+    0% {
+      opacity: .2;
+    }
+    /**
+     * At 20% the dot is fully visible and
+     * then fades out slowly
+     */
+    20% {
+      opacity: 1;
+    }
+    /**
+     * Until it reaches an opacity of .2 and
+     * the animation can start again
+     */
+    100% {
+      opacity: .2;
+    }
+}
+
+.ryuujiLoading span {
+    /**
+     * Use the blink animation, which is defined above
+     */
+    animation-name: blink;
+    /**
+     * The animation should take 1.4 seconds
+     */
+    animation-duration: 1.4s;
+    /**
+     * It will repeat itself forever
+     */
+    animation-iteration-count: infinite;
+    /**
+     * This makes sure that the starting style (opacity: .2)
+     * of the animation is applied before the animation starts.
+     * Otherwise we would see a short flash or would have
+     * to set the default styling of the dots to the same
+     * as the animation. Same applies for the ending styles.
+     */
+    animation-fill-mode: both;
+}
+
+.ryuujiLoading span:nth-child(2) {
+    /**
+     * Starts the animation of the third dot
+     * with a delay of .2s, otherwise all dots
+     * would animate at the same time
+     */
+    animation-delay: .2s;
+}
+
+.ryuujiLoading span:nth-child(3) {
+    /**
+     * Starts the animation of the third dot
+     * with a delay of .4s, otherwise all dots
+     * would animate at the same time
+     */
+    animation-delay: .4s;
 }

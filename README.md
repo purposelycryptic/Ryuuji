@@ -28,14 +28,9 @@ Once you are done, you should be good to go! Just direct your browser to your XA
 Following are some images to give you an idea of what to expect:
 
 
-**Ryuuji using ryuuji.html**
+**Ryuuji with ryuuji.html**
 
-![GIF of Ryuuji loading and showing status using ryuuji.html](ryuuji-html.gif)
-
-
-**Ryuuji using plex.html**
-
-![GIF of Ryuuji loading and showing status using plex.html](plex-html.gif)
+![GIF of Ryuuji loading and showing status using ryuuji.html](demo.gif)
 
 
 ### Note:
