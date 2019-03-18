@@ -29,6 +29,12 @@
 	</body>
 	<script src="web/bootstrap.min.js"></script>
 	<script>
+				
+		var PLEX_TOKEN = ""; // Example: "dkAsxa4324FAknfASdgj"
+		var SERVER_IP = ""; // Example: "192.168.1.24"
+		var SERVER_PORT = ""; // Example: "32400"
+	
+	
 			var succ = false;
 		var xhttp = new XMLHttpRequest();
 		xhttp.onreadystatechange = function() {
@@ -37,7 +43,7 @@
 			}
 		};
 		setInterval(function() {
-			xhttp.open("GET", "http://[IP_ADDRESS]:[PLEX_PORT]/status/sessions/?X-Plex-Token=[X_PLEX_TOKEN]", true);
+			xhttp.open("GET", "http://" + SERVER_IP + ":" + SERVER_PORT + "/status/sessions/?X-Plex-Token=" + PLEX_TOKEN, true);
 			xhttp.send();
 		}, 5000);
 
@@ -47,7 +53,7 @@
 			for (i = 0; i < x.length; i++) {
 				var z = x[i].childNodes[8];
 				console.log(z);
-				var token = "/?X-Plex-Token=[X_PLEX_TOKEN]"
+				var token = "/?X-Plex-Token=" + PLEX_TOKEN;
 				var series = x[i].getAttributeNode("grandparentTitle");
 				var episode = x[i].getAttributeNode("index");
 				var season = x[i].getAttributeNode("parentIndex");
@@ -59,7 +65,7 @@
 					var state = y[j].getAttributeNode("state");
 					var playerIP = y[j].getAttributeNode("remotePublicAddress")
 				}
-				var player = "http://[IP_ADDRESS]:[PLEX_PORT]";
+				var player = "http://" + SERVER_IP + ":" + SERVER_PORT;
 				var thumbloc = player + thumbnail.nodeValue + ".png" + token;
 				
 				document.getElementById("plexSeries-summary").innerHTML = series.nodeValue + " &#8226; " + "S" + season.nodeValue + "E" + episode.nodeValue + " &#8226; " + "Currently " + state.nodeValue;
@@ -67,7 +73,6 @@
 				document.getElementById("plexSeries-episode").innerHTML = "S" + season.nodeValue + " &#8226; " + "E" + episode.nodeValue + " &#9473; " + name.nodeValue;
 				document.getElementById("plexSeries-thumbnail").src = thumbloc;
 				document.getElementById("plexSeries-synopsis").innerHTML = "<span style=\"font-weight:bold;color:#ffffff;\">" + "Synopsis" + "</span>" + "</br>" + "<span style=\"color:hsla(0,0%,100%,.45);\">" + sum.nodeValue + "</span>";
-
 			}
 		}
 	</script>
